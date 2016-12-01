@@ -1,5 +1,6 @@
 {
   "name": "magic-8-ball",
+  "homepage": "http://myname.github.io/magic-8-ball",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
