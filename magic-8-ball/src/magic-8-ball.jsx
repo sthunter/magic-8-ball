@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import { Button, Col, Row, Input } from 'react-materialize';
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
 import FlatButton from 'material-ui/FlatButton';
-
-
-
 
 class Eightball extends Component {
     constructor(props){
@@ -34,22 +30,31 @@ class Eightball extends Component {
         20: "Very doubtful"
       },
       current: null,
-      text: null 
+      question: '', 
     }
   }
+
+  handleChange = (event) => {
+    this.setState({
+      question: event.target.value,
+    });
+  };
   
   handleAnswer = () => {
-    this.setState({current: this.state.answers[Math.floor(Math.random() * (Object.keys(this.state.answers).length - 1))]})
+    if(this.state.question.length !== 0) {
+      this.setState({current: this.state.answers[Math.floor(Math.random() * (Object.keys(this.state.answers).length))]})
+    } else {
+      alert ('Please enter a question')
+    }
   }
 
   handleClear = () => {
-    this.setState({current: null})
+    this.setState({current: ''})
   }
 
   render () {
 
     const style = {
-
       paperStyle : {
         height: 200,
         width: 200,
@@ -61,29 +66,42 @@ class Eightball extends Component {
       textStyle : {
         marginTop: 80,
         color : '#eeeeee'
+      },
+      inputStyle : {
+        color : '#eeeeee'
+      },
+      underlineStyle : {
+        borderColor : '#eeeeee'
       }
     }
 
     return (
       <div>
-        <TextField hintText={this.state.text} floatingLabelText="What is your question?" onChange={() => this.handleClear()}/><FlatButton onClick={() => this.handleAnswer()} label="Get answer" />
+        <TextField hintText={null} 
+          floatingLabelStyle={style.inputStyle}
+          floatingLabelFocusStyle={style.inputStyle}
+          underlineStyle={style.underlineStyle}
+          floatingLabelText="What is your question?" 
+          onChange={this.handleChange}/>
+        <FlatButton 
+          label="Get Answer"
+          labelStyle={style.inputStyle} 
+          onClick={() => this.handleAnswer()}/>
         <br/>
-        
           <div>
             <Paper style={style.paperStyle} zDepth={4} circle={true}>
              <div style={style.textStyle}>{this.state.current}</div>
             </Paper>
           </div> 
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/> 
-      </div>
-            
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/> 
+      </div>     
     )
   }
 }
