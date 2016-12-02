@@ -42,29 +42,46 @@ class Eightball extends Component {
     this.setState({current: this.state.answers[Math.floor(Math.random() * (Object.keys(this.state.answers).length - 1))]})
   }
 
+  handleClear = () => {
+    this.setState({current: null})
+  }
+
   render () {
 
     const style = {
-      height: 200,
-      width: 200,
-      margin: 20,
-      textAlign: 'center',
-      display: 'inline-block',
-    };
+
+      paperStyle : {
+        height: 200,
+        width: 200,
+        margin: 20,
+        textAlign: 'center',
+        display: 'inline-block',
+        backgroundColor: '#2f01c4'
+      },
+      textStyle : {
+        marginTop: 80,
+        color : '#eeeeee'
+      }
+    }
 
     return (
       <div>
+        <TextField hintText={this.state.text} floatingLabelText="What is your question?" onChange={() => this.handleClear()}/><FlatButton onClick={() => this.handleAnswer()} label="Get answer" />
+        <br/>
         
-
-            <TextField hintText={this.state.text} floatingLabelText="Floating Label Text"/><FlatButton onClick={() => this.handleAnswer()} label="Default" />
-            
-            <br/>
-            <Paper className="valign-wrapper" style={style} zDepth={4}>
-              <div className="answerCard valign">{this.state.current}</div>
+          <div>
+            <Paper style={style.paperStyle} zDepth={4} circle={true}>
+             <div style={style.textStyle}>{this.state.current}</div>
             </Paper>
-
-
-        
+          </div> 
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/> 
       </div>
             
     )

@@ -1,14 +1,18 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height : 100% !important; 
+  background: rgba(108,112,115,1);
+  background: -moz-radial-gradient(center, ellipse cover, rgba(108,112,115,1) 0%, rgba(33,36,38,1) 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(108,112,115,1)), color-stop(100%, rgba(33,36,38,1)));
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(108,112,115,1) 0%, rgba(33,36,38,1) 100%);
+  background: -o-radial-gradient(center, ellipse cover, rgba(108,112,115,1) 0%, rgba(33,36,38,1) 100%);
+  background: -ms-radial-gradient(center, ellipse cover, rgba(108,112,115,1) 0%, rgba(33,36,38,1) 100%);
+  background: radial-gradient(ellipse at center, rgba(108,112,115,1) 0%, rgba(33,36,38,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6c7073', endColorstr='#212426', GradientType=1 );
 }
 
 .App-header {
-  background-color: #222;
+  background-color: rgba(0,0,0,0);
   height: 150px;
   padding: 20px;
   color: white;
@@ -22,3 +26,7 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+
+
