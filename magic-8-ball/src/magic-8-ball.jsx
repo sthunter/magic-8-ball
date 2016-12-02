@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Button, Col, Row, Input } from 'react-materialize';
 import TextField from 'material-ui/TextField';
+import Paper from 'material-ui/Paper';
+import FlatButton from 'material-ui/FlatButton';
+
 
 
 
@@ -30,7 +33,8 @@ class Eightball extends Component {
         19: "Outlook not so good",
         20: "Very doubtful"
       },
-      current: null 
+      current: null,
+      text: null 
     }
   }
   
@@ -39,16 +43,30 @@ class Eightball extends Component {
   }
 
   render () {
+
+    const style = {
+      height: 200,
+      width: 200,
+      margin: 20,
+      textAlign: 'center',
+      display: 'inline-block',
+    };
+
     return (
       <div>
         
 
-            <TextField floatingLabelText="What is your question?"/>
+            <TextField hintText={this.state.text} floatingLabelText="Floating Label Text"/><FlatButton onClick={() => this.handleAnswer()} label="Default" />
             
-            <h2>{this.state.current}</h2>
+            <br/>
+            <Paper className="valign-wrapper" style={style} zDepth={4}>
+              <div className="answerCard valign">{this.state.current}</div>
+            </Paper>
+
 
         
       </div>
+            
     )
   }
 }

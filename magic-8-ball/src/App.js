@@ -9,9 +9,10 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
+          <h2>Enter your question for the Magic 8 Ball</h2>
         </div>
         <div className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          
         <Eightball/>
         </div>
       </div>
